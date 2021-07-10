@@ -8,15 +8,16 @@
     <meta name="author" content="Creative Tim">
     <title>@yield('title')</title>
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+    <link rel="icon" href="{{asset('assets/img/brand/favicon.png')}}" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/vendor/nucleo/css/nucleo.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}"
+          type="text/css">
     <!-- Page plugins -->
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/argon.css')}}" type="text/css">
 </head>
 <body>
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -24,7 +25,7 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
             <a class="navbar-brand" href="javascript:void(0)">
-                <img src="assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+                <img src="{{asset('assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
             </a>
         </div>
         <div class="navbar-inner">
@@ -33,15 +34,15 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="examples/dashboard.html">
+                        <a class="nav-link active" href="{{route('index')}}">
                             <i class="ni ni-tv-2 text-primary"></i>
-                            <span class="nav-link-text">Dashboard</span>
+                            <span class="nav-link-text">داشبورد</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/icons.html">
-                            <i class="ni ni-planet text-orange"></i>
-                            <span class="nav-link-text">Icons</span>
+                        <a class="nav-link" href="{{route('post.index')}}">
+                            <i class="ni ni-books text-orange"></i>
+                            <span class="nav-link-text">پست ها </span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -90,25 +91,33 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav mb-md-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+                        <a class="nav-link"
+                           href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
+                           target="_blank">
                             <i class="ni ni-spaceship"></i>
                             <span class="nav-link-text">Getting started</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
+                        <a class="nav-link"
+                           href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html"
+                           target="_blank">
                             <i class="ni ni-palette"></i>
                             <span class="nav-link-text">Foundation</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
+                        <a class="nav-link"
+                           href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html"
+                           target="_blank">
                             <i class="ni ni-ui-04"></i>
                             <span class="nav-link-text">Components</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                        <a class="nav-link"
+                           href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html"
+                           target="_blank">
                             <i class="ni ni-chart-pie-35"></i>
                             <span class="nav-link-text">Plugins</span>
                         </a>
@@ -140,7 +149,8 @@
                             <input class="form-control" placeholder="Search" type="text">
                         </div>
                     </div>
-                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+                            aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </form>
@@ -148,7 +158,8 @@
                 <ul class="navbar-nav align-items-center  ml-md-auto ">
                     <li class="nav-item d-xl-none">
                         <!-- Sidenav toggler -->
-                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
+                             data-target="#sidenav-main">
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line"></i>
                                 <i class="sidenav-toggler-line"></i>
@@ -162,13 +173,15 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
                             <i class="ni ni-bell-55"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                             <!-- Dropdown header -->
                             <div class="px-3 py-3">
-                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong>
+                                    notifications.</h6>
                             </div>
                             <!-- List group -->
                             <div class="list-group list-group-flush">
@@ -176,7 +189,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                            <img alt="Image placeholder" src="{{asset('assets/img/theme/team-1.jpg')}}"
+                                                 class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -195,7 +209,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                                            <img alt="Image placeholder" src="{{asset('assets/img/theme/team-2.jpg')}}"
+                                                 class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -214,7 +229,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                                            <img alt="Image placeholder" src="{{asset('assets/img/theme/team-3.jpg')}}"
+                                                 class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -233,7 +249,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                            <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.jpg')}}"
+                                                 class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -252,7 +269,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                                            <img alt="Image placeholder" src="{{asset('assets/img/theme/team-5.jpg')}}"
+                                                 class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -269,11 +287,13 @@
                                 </a>
                             </div>
                             <!-- View all -->
-                            <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                            <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View
+                                all</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
                             <i class="ni ni-ungroup"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
@@ -320,10 +340,11 @@
                 </ul>
                 <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
                     <li class="nav-item dropdown">
-                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
+                    <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.jpg')}}">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
@@ -416,7 +437,8 @@
                                         <span class="h2 font-weight-bold mb-0">2,356</span>
                                     </div>
                                     <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                                        <div
+                                            class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
                                             <i class="ni ni-chart-pie-35"></i>
                                         </div>
                                     </div>
@@ -478,17 +500,23 @@
     </div>
     <!-- Page content -->
 
+    <div class="container-fluid">
+        <div class="row">
+            @yield('content')
+        </div>
+    </div>
+
 </div>
-<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/js-cookie/js.cookie.js"></script>
-<script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-<script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+<script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/js-cookie/js.cookie.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
 <!-- Optional JS -->
-<script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-<script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
+<script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
 <!-- Argon JS -->
-<script src="assets/js/argon.js?v=1.2.0"></script>
+<script src="{{asset('assets/js/argon.js')}}"></script>
 </body>
 
 </html>

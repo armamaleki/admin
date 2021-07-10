@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::resource('','AdminController');
+    Route::resource('post','postController');
 });
