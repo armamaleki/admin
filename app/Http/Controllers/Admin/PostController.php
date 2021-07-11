@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         $title = 'پست ها ';
-        return view('admin.post', compact('title'));
+        $posts= Post::all();
+        return view('admin.post', compact('title','posts'));
     }
 
     /**
@@ -36,7 +38,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'pic' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'body' => 'required',
+            'status' => 'required',
+            'user_id' => 'required',
+        ]);
+        $validated['slug']= str_replace(' ', '-', $request['title']);
+        $image = $request->file('pic');
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path("images"), $new_name);
+        Post::create($validated);
+        return redirect()->back();
     }
 
     /**
