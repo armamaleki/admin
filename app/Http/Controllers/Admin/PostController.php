@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {
@@ -16,8 +18,8 @@ class PostController extends Controller
     public function index()
     {
         $title = 'پست ها ';
-        $posts= Post::all();
-        return view('admin.post', compact('title','posts'));
+        $posts = Post::all();
+        return view('admin.post', compact('title', 'posts'));
     }
 
     /**
@@ -49,8 +51,10 @@ class PostController extends Controller
         $image = $request->file('pic');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path("images"), $new_name);
+        $validated['pic'] =$new_name;
         Post::create($validated);
         return redirect()->back();
+
     }
 
     /**

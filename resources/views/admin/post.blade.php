@@ -17,11 +17,12 @@
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="input-address">تصویر</label>
-                <input name="pic" id="input-address" class="form-control"  type="file">
+                <input name="pic" id="input-address" class="form-control" type="file">
             </div>
             <div class="form-group">
                 <label class="form-control-label">نوشته شما </label>
-                <textarea name="body" rows="4" class="form-control" placeholder="برنامه نویسی یکی از پر در امد ترین شغل های دنییاست.."></textarea>
+                <textarea name="body" rows="4" class="form-control"
+                          placeholder="برنامه نویسی یکی از پر در امد ترین شغل های دنییاست.."></textarea>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="1" checked>
@@ -43,8 +44,8 @@
     </div>
     <div class="col-lg-6">
         @foreach($posts as $post)
-            <img src="{{$post->pic}}" alt="">
-            
+            <img src="/images/{{$post->pic}}" alt="">
+            <p>{{$post->title}}</p>
         @endforeach
     </div>
 
