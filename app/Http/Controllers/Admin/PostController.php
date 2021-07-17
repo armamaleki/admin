@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\models\Post;
+use App\models\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -18,7 +20,8 @@ class PostController extends Controller
     public function index()
     {
         $title = 'پست ها ';
-        $posts = Post::all();
+        $posts = Post::with('user')->get()->sortDesc();
+//        dd($posts->toArray());
         return view('admin.post', compact('title', 'posts'));
     }
 
@@ -40,18 +43,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+//        dd(Auth::check());
         $validated = $request->validate([
             'title' => 'required',
             'pic' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'body' => 'required',
             'status' => 'required',
-            'user_id' => 'required',
+
         ]);
-        $validated['slug']= str_replace(' ', '-', $request['title']);
+        $validated['user_id'] = Auth::user()->id;
+        $validated['slug'] = str_replace(' ', '-', $request['title']);
         $image = $request->file('pic');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path("images"), $new_name);
-        $validated['pic'] =$new_name;
+        $validated['pic'] = $new_name;
         Post::create($validated);
         return redirect()->back();
 

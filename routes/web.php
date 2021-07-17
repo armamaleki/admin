@@ -19,5 +19,10 @@ Route::get('/', function () {
 
 Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::resource('','AdminController');
+    Route::resource('profile','ProfileController');
     Route::resource('post','postController');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
