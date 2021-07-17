@@ -20,7 +20,8 @@ Route::get('/', function () {
 Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::resource('','AdminController');
     Route::resource('profile','ProfileController');
-    Route::resource('post','postController');
+    Route::resource('post','PostController');
+    Route::resource('caffe','CaffeController');
 });
 
 Auth::routes();

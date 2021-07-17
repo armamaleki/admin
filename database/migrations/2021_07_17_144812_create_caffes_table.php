@@ -15,6 +15,13 @@ class CreateCaffesTable extends Migration
     {
         Schema::create('caffes', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('phone')->nullable();
+            $table->integer('status')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -46,9 +46,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/map.html">
+                        <a class="nav-link" href="{{route('caffe.index')}}">
                             <i class="ni ni-pin-3 text-primary"></i>
-                            <span class="nav-link-text">Google</span>
+                            <span class="nav-link-text">کافه ها</span>
                         </a>
                     </li>
                     <li class="nav-item">
