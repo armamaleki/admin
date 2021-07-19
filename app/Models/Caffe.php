@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Caffe extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'title',
+        'name',
+        'address',
+        'phone',
+        'status',
+        'user_id',
+        ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

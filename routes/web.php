@@ -22,6 +22,7 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::resource('profile','ProfileController');
     Route::resource('post','PostController');
     Route::resource('caffe','CaffeController');
+    Route::resource('menu','MenuController');
 });
 
 Auth::routes();

@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function caffe()
+    {
+        return $this->hasOne(Caffe::class);
+    }
 }

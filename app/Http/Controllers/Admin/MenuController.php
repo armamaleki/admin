@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Caffe;
-use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CaffeController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +14,8 @@ class CaffeController extends Controller
      */
     public function index()
     {
-        $title = 'کافه های برگذار کننده رویداد';
-//        $caffes = Caffe::all();
-        $caffes = Caffe::with('user')->get()->sortDesc();
-
-        return view('admin.caffe', compact('title', 'caffes'));
+        $title='منو کافه ها';
+        return view('admin.menu', compact('title'));
     }
 
     /**
@@ -37,27 +31,18 @@ class CaffeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required',
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'status' => 'required',
-        ]);
-        $validated['user_id']= Auth::user()->id;
-        Caffe::create($validated);
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -68,7 +53,7 @@ class CaffeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -79,8 +64,8 @@ class CaffeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +76,7 @@ class CaffeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
