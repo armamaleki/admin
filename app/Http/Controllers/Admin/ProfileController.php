@@ -77,7 +77,9 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
-        $users = User::where("id", $id)->update($request->except(['_token', '_method']));
+
+
+        $validated = User::where("id", $id)->update($request->except(['_token', '_method']));
         return redirect()->back();
     }
 

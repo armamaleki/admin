@@ -17,14 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 Route::prefix('admin')->namespace('Admin')->group(function(){
-    Route::resource('','AdminController');
-    Route::resource('profile','ProfileController');
-    Route::resource('post','PostController');
-    Route::resource('caffe','CaffeController');
-    Route::resource('menu','MenuController');
+    Route::resource('','AdminController')->middleware('auth');
+    Route::resource('profile','ProfileController')->middleware('auth');
+    Route::resource('post','PostController')->middleware('auth');
+    Route::resource('caffe','CaffeController')->middleware('auth');
+    Route::resource('menu','MenuController')->middleware('auth');
+    Route::resource('game','GameController')->middleware('auth');
 });
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

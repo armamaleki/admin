@@ -86,14 +86,16 @@
 
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">نام کاربری</label>
-                                            <input name="username" disabled type="text" id="input-username" class="form-control"
+                                            <input name="username" disabled type="text" id="input-username"
+                                                   class="form-control"
                                                    value="{{$user->username}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-email">ادرس ایمیل</label>
-                                            <input name="email" disabled type="email" id="input-email" class="form-control"
+                                            <input name="email" disabled type="email" id="input-email"
+                                                   class="form-control"
                                                    value="{{$user->email}}">
                                         </div>
                                     </div>
@@ -140,7 +142,8 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-country">کد پستی</label>
-                                            <input name="postal_code" type="number" id="input-postal-code" value="{{$user->postal_code}}" class="form-control">
+                                            <input name="postal_code" type="number" id="input-postal-code"
+                                                   value="{{$user->postal_code}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -158,9 +161,16 @@
                             <div class="pl-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">درباره من </label>
-                                    <textarea name="about_me" rows="4" class="form-control">{{$user->about_me}}</textarea>
+                                    <textarea name="about_me" rows="4"
+                                              class="form-control">{{$user->about_me}}</textarea>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label for="">پروفایل کاری</label>
+                                <input type="file" class="form-control-file" name="avatar" id="">
+                            </div>
+
                             <div class="pl-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">ارسال اطلاعا</label>

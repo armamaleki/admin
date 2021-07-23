@@ -50,6 +50,7 @@
             <thead>
             <tr>
                 <th scope="col">شماره</th>
+                <th scope="col">برگذار کننده</th>
                 <th scope="col">تایتل</th>
                 <th scope="col">نام</th>
                 <th scope="col">ادرس</th>

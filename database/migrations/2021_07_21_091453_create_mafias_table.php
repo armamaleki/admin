@@ -15,6 +15,17 @@ class CreateMafiasTable extends Migration
     {
         Schema::create('mafias', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description')->nullable();
+            $table->integer('status')->default(0);
+            $table->string('price')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('member')->default(0);
+            $table->time('time')->nullable();
+            $table->string('movie')->nullable();
+            $table->string('slug');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

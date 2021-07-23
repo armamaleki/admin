@@ -19,9 +19,10 @@ class PostController extends Controller
      */
     public function index()
     {
+//        dd(Auth::check());
         $title = 'پست ها ';
         $posts = Post::with('user')->get()->sortDesc();
-//        dd($posts->toArray());
+
         return view('admin.post', compact('title', 'posts'));
     }
 

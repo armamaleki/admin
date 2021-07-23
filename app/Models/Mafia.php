@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Mafia extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'title',
+        'description',
+        'status',
+        'price',
+        'avatar',
+        'member',
+        'time',
+        'movie',
+        'slug',
+        'user_id',
+    ];
 }
