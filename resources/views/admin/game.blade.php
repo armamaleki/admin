@@ -60,6 +60,50 @@
     </div>
     {{-------------------show--------------------}}
     <div class="col-6">
-ss
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">شماره</th>
+                <th scope="col">برگذار کننده</th>
+                <th scope="col">تایتل</th>
+                <th scope="col">قیمت</th>
+                <th scope="col">نفرات حاظر در برنامه</th>
+                <th scope="col">زمان برگذاری برنامه</th>
+                <th scope="col">وضعیت</th>
+                <th scope="col">پاک کردن</th>
+                <th scope="col">ادیت کردن</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($games as $game)
+                <tr>
+                    <th scope="row">{{$game->id}}</th>
+                    <td>{{$game->user->name}}</td>
+                    <td>{{$game->title}}</td>
+                    <td>{{$game->price}}</td>
+                    <td>{{$game->member}}</td>
+                    <td>{{$game->time}}</td>
+                    <td>
+                        @if($game->status == 1)
+                            <button type="button" class="btn btn-outline-light">فعال</button>
+
+                        @else
+                            <button type="button" class="btn btn-outline-dark">غیر فعال</button>
+
+                        @endif
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger">پاک کردن</button>
+
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success">ادیت کردن</button>
+
+                    </td>
+                </tr>
+            @endforeach
+
+            </tbody>
+        </table>
     </div>
 @endsection

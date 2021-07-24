@@ -422,5 +422,11 @@
 <p>
     هندل کردن صفحات 404
 </p>
+<br>
+<p>
+میدل ور is admin رو مجدد توضیح بده تو
+    'auth' => \App\Http\Middleware\Authenticate::class,
+
+</p>
 </body>
 </html>

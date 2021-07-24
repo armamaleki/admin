@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Caffe::class);
     }
+
+    public function game()
+    {
+        return $this->hasOne(Mafia::class);
+    }
 }

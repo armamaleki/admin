@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Mafia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 class GameController extends Controller
 {
@@ -17,7 +21,8 @@ class GameController extends Controller
     public function index()
     {
         $title = 'بازی های مورد نظر ';
-        return view('admin.game', compact('title'));
+        $games=Mafia::with('user')->get()->sortDesc();
+        return view('admin.game', compact('title', 'games'));
     }
 
     /**
@@ -57,22 +62,26 @@ class GameController extends Controller
         $exploade = explode('.', $name);
         $end = end($exploade);
         $username = Auth::user()->name;
-        $new_name = $username.' '. $validated['title'] . time() . '.' . $end;
+        $new_name = $username . ' ' . $validated['title'] . time() . '.' . $end;
         $str = str_replace(' ', '-', $new_name);
         $image->move(public_path('images'), $str);
         $validated['avatar'] = $str;
+
+
 //        ---------------------end avatar---------------
 //        dd($str);
 
 //        -----------------video-----------------------
         $movie = $request->file('movie');
         $name_movie = $movie->getClientOriginalName();
-        $new_movie =Auth::user()->name.' '.$validated['title']. time() . $name_movie;
+        $new_movie = Auth::user()->name . ' ' . $validated['title'] . time() . $name_movie;
         $str_v = str_replace(' ', '-', $new_movie);
         $movie->move(public_path('movie'), $str_v);
 
 //        dd($str_v);
         $validated['movie'] = $str_v;
+
+
 //        -----------------end video-----------------------
         Mafia::create($validated);
         return redirect()->back();

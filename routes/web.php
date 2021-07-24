@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/q', function () {
     return view('welcome');
 });
 
@@ -27,6 +27,14 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::resource('game','GameController')->middleware('auth');
 });
 
+
+//Route::get('/', function () {
+//    return view('index');
+//});
+
+//Route::prefix('/')->namespace('View')->group(function (){
+//    Route::resource('','HomeController');
+//});
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
